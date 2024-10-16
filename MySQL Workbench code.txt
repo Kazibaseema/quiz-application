@@ -1,0 +1,26 @@
+CREATE DATABASE quiz;
+USE quiz;
+
+CREATE TABLE questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,       -- Unique ID for each question
+    questionText VARCHAR(255) NOT NULL,      -- The quiz question
+    option1 VARCHAR(100) NOT NULL,           -- First option
+    option2 VARCHAR(100) NOT NULL,           -- Second option
+    option3 VARCHAR(100) NOT NULL,           -- Third option
+    option4 VARCHAR(100) NOT NULL,           -- Fourth option
+    correctAnswer VARCHAR(100) NOT NULL,     -- Correct answer
+    quiz_link VARCHAR(255) NOT NULL          -- Quiz link for identifying which quiz the question belongs to
+);
+
+CREATE TABLE quiz_results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    score INT NOT NULL,
+    quiz_link VARCHAR(255) NOT NULL,
+    user_answers TEXT NOT NULL,
+    correct_answers TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+select * from questions;
+select * from quiz_results;
